@@ -1,82 +1,72 @@
-#root {
-  max-width: 1280px;
+/* Estilos para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Alinhe os elementos verticalmente */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center; /* Alinhe o texto ao centro */
+}
+
+/* Estilos para o título principal */
+h1 {
+  color: #333;
+  font-size: 24px; /* Ajuste o tamanho do título principal conforme necessário */
+  margin-top: 20px;
+}
+
+/* Estilos para o subtítulo "Favoritos" */
+h2 {
+  font-size: 35px; /* Ajuste o tamanho do subtítulo conforme necessário */
+}
+
+/* Estilos para o conteúdo de texto */
+p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* Estilos para a imagem */
+img {
+  width: 300px; /* Defina o valor desejado para a largura */
+  display: block;
   margin: 0 auto;
-  padding: 2rem;
+  height: 200px; /* Manter a proporção original da imagem */
+}
+
+/* Estilos para o botão 3D */
+.button-3d {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffa12b; /* Cor de fundo */
+  color: #fff; /* Cor do texto */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.2s;
+  position: relative;
+  margin: 30px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Estilos para a lista de favoritos */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(1) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(1) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+li {
+  font-size: 16px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
 }
