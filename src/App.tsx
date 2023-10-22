@@ -103,12 +103,12 @@ function App() {
   return (
     <div className="container">
       <img src="/chucknorris_logo.png" alt="chucknorris_logo" />
-      <h1>Chuck Norris Joke</h1>
+      <h1>Chuck Norris Jokes</h1>
       {isLoading ? (
-        <p>...</p>
+        <p>Aguarde...</p>
       ) : (
         <>
-          <p>{joke}</p>
+          <p className="piadas">{joke}</p>
           <Botao texto="Voltar" onClick={handlePreviousJoke} />
           <Botao texto="Like" onClick={handleLike} />
           <Botao texto="Próximo" onClick={handleNextJoke} />
