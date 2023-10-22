@@ -11,10 +11,14 @@ import Botao from "./Componentes/Botao.js";
 function App() {
   // Declaração dos estados do componente
   const [joke, setJoke] = useState(""); // Estado para armazenar a piada atual
-  const [favorites, setFavorites] = useState([]); // Estado para armazenar piadas favoritas
-  const [isLoading, setIsLoading] = useState(false); // Estado para controlar o carregamento
-  const [jokeHistory, setJokeHistory] = useState([]); // Estado para armazenar o histórico de piadas
-  const [currentJokeIndex, setCurrentJokeIndex] = useState(-1);  // Estado para controlar o índice da piada atual
+  // Estado para armazenar piadas favoritas
+  const [favorites, setFavorites] = useState([]); 
+  // Estado para controlar o carregamento
+  const [isLoading, setIsLoading] = useState(false); 
+  // Estado para armazenar o histórico de piadas
+  const [jokeHistory, setJokeHistory] = useState([]); 
+  // Estado para controlar o índice da piada atual
+  const [currentJokeIndex, setCurrentJokeIndex] = useState(-1);  
 
   // Função para carregar piadas favoritas do armazenamento local
   const loadFavoritesFromLocalStorage = () => {
