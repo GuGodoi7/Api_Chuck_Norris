@@ -26,7 +26,7 @@ function App() {
 
   // Função para buscar uma nova piada da API
   const fetchJoke = () => {
-    setIsLoading(true); // Define isLoading como verdadeiro para mostrar que está carregando
+    setIsLoading(true); 
     fetch("https://api.chucknorris.io/jokes/random")
       .then((response) => response.json())
       .then((data) => {
@@ -45,15 +45,20 @@ function App() {
 
   // Efeito colateral que é executado apenas uma vez, ao inicializar o componente
   useEffect(() => {
-    loadFavoritesFromLocalStorage(); // Carrega as piadas favoritas do armazenamento local
-    fetchJoke(); // Busca uma piada ao montar o componente
+    // Carrega as piadas favoritas do armazenamento local
+    loadFavoritesFromLocalStorage(); 
+    // Busca uma piada ao montar o componente
+    fetchJoke(); 
   }, []);
 
   // Função para adicionar a piada atual aos favoritos
   const handleLike = () => {
-    const newFavorites = [...favorites, joke]; // Cria uma nova lista de favoritos
-    setFavorites(newFavorites); // Atualiza o estado de favoritos
-    localStorage.setItem("favorites", JSON.stringify(newFavorites));  // Armazena no armazenamento local
+    // Cria uma nova lista de favoritos
+    const newFavorites = [...favorites, joke]; 
+    // Atualiza o estado de favoritos
+    setFavorites(newFavorites); 
+    // Armazena no armazenamento local
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));  
   };
 
   // Função para remover uma piada da lista de favoritos
@@ -64,9 +69,12 @@ function App() {
       )
     ) {
       const newFavorites = [...favorites];
-      newFavorites.splice(index, 1); // Remove a piada da lista de favoritos
-      setFavorites(newFavorites); // Atualiza o estado de favoritos
-      localStorage.setItem("favorites", JSON.stringify(newFavorites)); // Atualiza o armazenamento local
+      // Remove a piada da lista de favoritos
+      newFavorites.splice(index, 1); 
+       // Atualiza o estado de favoritos
+      setFavorites(newFavorites);
+      // Atualiza o armazenamento local
+      localStorage.setItem("favorites", JSON.stringify(newFavorites)); 
     }
   };
 
@@ -78,9 +86,12 @@ function App() {
   // Função para buscar a piada anterior na histórico de piadas
   const handlePreviousJoke = () => {
     if (currentJokeIndex > 0) {
-      const previousJokeIndex = currentJokeIndex - 1;  // Calcula o índice da piada anterior
-      setJoke(jokeHistory[previousJokeIndex]); // Define a piada anterior como a piada atual
-      setCurrentJokeIndex(previousJokeIndex); // Atualiza o índice da piada atual
+       // Calcula o índice da piada anterior
+      const previousJokeIndex = currentJokeIndex - 1; 
+      // Define a piada anterior como a piada atual
+      setJoke(jokeHistory[previousJokeIndex]); 
+      // Atualiza o índice da piada atual
+      setCurrentJokeIndex(previousJokeIndex); 
     }
   };
 
@@ -90,7 +101,7 @@ function App() {
       <img src="/chucknorris_logo.png" alt="chucknorris_logo" />
       <h1>Chuck Norris Joke</h1>
       {isLoading ? (
-        <p></p>
+        <p>...</p>
       ) : (
         <>
           <p>{joke}</p>
