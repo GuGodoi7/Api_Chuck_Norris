@@ -1,23 +1,12 @@
-// Importa a folha de estilo CSS do aplicativo
 import "./App.css";
-
-// Importa os hooks necessários do React
 import { useEffect, useState } from "react";
-
-// Importa o componente Botao
 import Botao from "./Componentes/Botao.js";
 
-// Define o componente principal App
 function App() {
-  // Declaração dos estados do componente
-  const [joke, setJoke] = useState(""); // Estado para armazenar a piada atual
-  // Estado para armazenar piadas favoritas
+  const [joke, setJoke] = useState(""); 
   const [favorites, setFavorites] = useState([]); 
-  // Estado para controlar o carregamento
   const [isLoading, setIsLoading] = useState(false); 
-  // Estado para armazenar o histórico de piadas
   const [jokeHistory, setJokeHistory] = useState([]); 
-  // Estado para controlar o índice da piada atual
   const [currentJokeIndex, setCurrentJokeIndex] = useState(-1);  
 
   // Função para carregar piadas favoritas do armazenamento local
@@ -34,34 +23,25 @@ function App() {
     fetch("https://api.chucknorris.io/jokes/random")
       .then((response) => response.json())
       .then((data) => {
-        // Atualiza o histórico de piadas com a nova piada
         const newJokeHistory = [...jokeHistory];
         newJokeHistory.push(data.value);
         setJokeHistory(newJokeHistory);
-        // Atualiza o índice da piada atual
         setCurrentJokeIndex(newJokeHistory.length);
-        // Atualiza a piada atual no estado
         setJoke(data.value);
       })
       .catch((error) => console.error(error))
       .finally(() => setIsLoading(false));
   };
 
-  // Efeito colateral que é executado apenas uma vez, ao inicializar o componente
   useEffect(() => {
-    // Carrega as piadas favoritas do armazenamento local
     loadFavoritesFromLocalStorage(); 
-    // Busca uma piada ao montar o componente
     fetchJoke(); 
   }, []);
 
   // Função para adicionar a piada atual aos favoritos
   const handleLike = () => {
-    // Cria uma nova lista de favoritos
     const newFavorites = [...favorites, joke]; 
-    // Atualiza o estado de favoritos
     setFavorites(newFavorites); 
-    // Armazena no armazenamento local
     localStorage.setItem("favorites", JSON.stringify(newFavorites));  
   };
 
@@ -73,11 +53,8 @@ function App() {
       )
     ) {
       const newFavorites = [...favorites];
-      // Remove a piada da lista de favoritos
       newFavorites.splice(index, 1); 
-       // Atualiza o estado de favoritos
       setFavorites(newFavorites);
-      // Atualiza o armazenamento local
       localStorage.setItem("favorites", JSON.stringify(newFavorites)); 
     }
   };
@@ -90,11 +67,8 @@ function App() {
   // Função para buscar a piada anterior na histórico de piadas
   const handlePreviousJoke = () => {
     if (currentJokeIndex > 0) {
-       // Calcula o índice da piada anterior
       const previousJokeIndex = currentJokeIndex - 1; 
-      // Define a piada anterior como a piada atual
       setJoke(jokeHistory[previousJokeIndex]); 
-      // Atualiza o índice da piada atual
       setCurrentJokeIndex(previousJokeIndex); 
     }
   };
@@ -126,6 +100,4 @@ function App() {
     </div>
   );
 }
-
-// Exporta o componente App
 export default App;
