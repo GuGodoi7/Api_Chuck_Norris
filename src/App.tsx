@@ -40,10 +40,15 @@ function App() {
 
   // Função para adicionar a piada atual aos favoritos
   const handleLike = () => {
-    const newFavorites = [...favorites, joke]; 
-    setFavorites(newFavorites); 
-    localStorage.setItem("favorites", JSON.stringify(newFavorites));  
+    if (!favorites.includes(joke)) {
+      const newFavorites = [...favorites, joke];
+      setFavorites(newFavorites);
+      localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    } else {
+      alert("Esta piada já está nos favoritos.");
+    }
   };
+  
 
   // Função para remover uma piada da lista de favoritos
   const handleRemove = (index) => {
