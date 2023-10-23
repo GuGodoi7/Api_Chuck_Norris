@@ -5,11 +5,11 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Alinhe os elementos verticalmente */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  text-align: center; /* Alinhe o texto ao centro */
+  text-align: center; 
 }
 
 /* Estilos para o título principal */
