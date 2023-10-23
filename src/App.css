@@ -22,6 +22,7 @@ h1 {
 /* Estilos para o subtítulo "Favoritos" */
 h2 {
   font-size: 35px; /* Ajuste o tamanho do subtítulo conforme necessário */
+  color: #000000;
 }
 
 /* Estilos para o conteúdo de texto */
